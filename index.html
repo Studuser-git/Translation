@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Бюро переводов «Сөз»</title>
+<meta name="description" content="Письменный и устный перевод в Алматы: английский, немецкий, французский и казахский на русский. Профессиональные переводчики и проверка вторым специалистом.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap&subset=cyrillic-ext">
+<style>
+:root{
+  --bg:#F6F4EF; --surface:#FFFFFF; --surface-2:#ECE8DF; --line:#DAD4C7;
+  --ink:#16222E; --muted:#5B6672; --accent:#0E5A7A; --accent-ink:#FFFFFF;
+  --gold:#B8862B; --gold-soft:#F3E7CC; --ok:#2F7A4F; --off:#A3412C;
+  --serif:"Lora",Georgia,"Times New Roman",serif;
+  --sans:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10171E; --surface:#17212A; --surface-2:#1F2C37; --line:#2D3C49;
+    --ink:#E9EEF2; --muted:#9AA8B5; --accent:#5FB4D6; --accent-ink:#0B1218;
+    --gold:#E0B25A; --gold-soft:#2E2819; --ok:#7CC79A; --off:#E48A74;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10171E; --surface:#17212A; --surface-2:#1F2C37; --line:#2D3C49;
+  --ink:#E9EEF2; --muted:#9AA8B5; --accent:#5FB4D6; --accent-ink:#0B1218;
+  --gold:#E0B25A; --gold-soft:#2E2819; --ok:#7CC79A; --off:#E48A74;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,4.4vw,3.2rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.2vw,2.3rem)}
+h3{font-size:1.2rem}
+p{margin:0}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:max(16px,4vw)}
+.label{font:600 .76rem/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.lead{color:var(--muted);max-width:64ch;font-size:1.08rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+section{padding-block:clamp(56px,8vw,96px)}
+.sec-head{display:grid;gap:12px;margin-bottom:40px}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:.7em 1.3em;border-radius:10px;border:1.5px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:600 1rem/1.2 var(--sans);text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ghost:hover{background:var(--surface)}
+.btn.small{min-height:40px;padding:.5em 1em;font-size:.93rem}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:24px;min-height:66px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.logo .mark{width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 1.15rem var(--serif)}
+.logo strong{font:600 1.05rem var(--serif)}
+.logo small{display:block;font:500 .72rem var(--mono);color:var(--muted);letter-spacing:.06em}
+nav.links{display:flex;gap:2px;margin-left:auto}
+nav.links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;padding:.4em .7em;border-radius:8px;white-space:nowrap}
+nav.links a:hover{color:var(--ink);background:var(--surface)}
+@media (max-width:860px){nav.links{display:none} header.top .btn{margin-left:auto}}
+
+/* Hero */
+.hero{padding-block:clamp(40px,6vw,84px)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero-copy{display:grid;gap:22px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:flex;flex-wrap:wrap;gap:12px 36px;padding-top:20px;border-top:1px solid var(--line)}
+.fact strong{display:block;font:600 1.7rem/1.1 var(--serif);font-variant-numeric:tabular-nums}
+.fact span{color:var(--muted);font-size:.92rem}
+
+/* Word card */
+.word-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:0 28px 60px -34px rgba(14,40,60,.45);overflow:hidden}
+.word-tabs{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);background:var(--surface-2)}
+.word-tabs button{min-height:52px;border:0;background:none;color:var(--muted);font:600 .95rem var(--mono);cursor:pointer;border-bottom:3px solid transparent}
+.word-tabs button:hover{color:var(--ink)}
+.word-tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);background:var(--surface)}
+.word-body{padding:clamp(22px,4vw,34px);display:grid;gap:18px}
+.word-row{display:grid;gap:4px}
+.word-row .lang{font:500 .78rem var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.word-row .w{font:500 clamp(1.8rem,4vw,2.5rem)/1.15 var(--serif);word-break:break-word;transition:opacity .2s}
+.word-row.src .w{font-style:italic}
+.arrow{display:flex;align-items:center;gap:12px;color:var(--gold);font:600 .8rem var(--mono)}
+.arrow::before,.arrow::after{content:"";flex:1;height:1px;background:var(--line)}
+.word-foot{display:flex;justify-content:space-between;gap:12px;padding:14px clamp(22px,4vw,34px);border-top:1px dashed var(--line);font:500 .82rem var(--mono);color:var(--muted)}
+
+/* Languages */
+.langs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.lang-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:12px;align-content:start;transition:border-color .2s,box-shadow .2s}
+.lang-card.on{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.code{width:52px;height:52px;border-radius:12px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:600 1.05rem var(--mono)}
+.lang-card .native{font:500 .85rem var(--mono);color:var(--gold)}
+.lang-card p{color:var(--muted);font-size:.95rem}
+.units{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.unit{display:flex;gap:16px;align-items:center;padding:18px 20px;border-radius:var(--r);background:var(--gold-soft);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent)}
+.unit b{font:600 1.5rem var(--serif);color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.unit span{color:var(--muted);font-size:.95rem}
+
+/* Calculator */
+.calc{margin-top:18px;padding:22px;border-radius:var(--r);border:1px dashed var(--line);display:grid;grid-template-columns:1fr auto auto;gap:18px 28px;align-items:end}
+.calc label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+.calc input{width:100%;min-height:50px;padding:.6em .9em;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 1.05rem var(--mono)}
+.calc input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
+.calc output{display:grid;font:600 1.5rem/1.1 var(--serif);font-variant-numeric:tabular-nums}
+.calc output small{font:500 .8rem var(--sans);color:var(--muted)}
+.calc .note{grid-column:1/-1;color:var(--muted);font-size:.85rem}
+
+/* Quality */
+.quality .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.checks li{display:grid;grid-template-columns:36px 1fr;gap:14px}
+.checks li::before{content:"✓";width:36px;height:36px;border-radius:10px;background:var(--surface-2);color:var(--accent);display:grid;place-items:center;font-weight:700}
+.checks b{display:block}
+.checks span{color:var(--muted);font-size:.96rem}
+.quote{margin:0;padding:28px;border-radius:var(--r);background:var(--accent);color:var(--accent-ink)}
+.quote blockquote{margin:0;font:italic 500 1.25rem/1.5 var(--serif)}
+.quote figcaption{margin-top:14px;font:500 .8rem var(--mono);opacity:.8;letter-spacing:.06em;text-transform:uppercase}
+
+/* Pipeline */
+.pipeline{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:p}
+.stage{position:relative;padding:20px 22px 20px 22px;background:var(--surface);border:1px solid var(--line);display:grid;gap:4px}
+.stage:first-child{border-radius:var(--r) 0 0 var(--r)}
+.stage:last-child{border-radius:0 var(--r) var(--r) 0}
+.stage+.stage{border-left:0}
+.stage::before{counter-increment:p;content:"0" counter(p);font:600 .78rem var(--mono);color:var(--gold)}
+.stage b{font:600 1.1rem var(--serif)}
+.stage span{color:var(--muted);font-size:.92rem}
+.stage:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-weight:700;z-index:1}
+
+/* Services */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:14px}
+.card .icon{width:48px;height:48px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;color:var(--gold)}
+.card .icon svg{width:24px;height:24px}
+.card p{color:var(--muted)}
+.card ul{margin:0;padding:14px 0 0;border-top:1px solid var(--line);list-style:none;display:grid;gap:8px}
+.card li{padding-left:20px;position:relative}
+.card li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+
+/* Steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.steps li{display:grid;gap:10px;align-content:start;padding-top:18px;border-top:2px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:600 1rem var(--mono)}
+.steps b{font:600 1.1rem var(--serif)}
+.steps span{color:var(--muted);font-size:.95rem}
+
+/* Contacts */
+.contacts .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,56px);align-items:start}
+.contact-list{display:grid;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+.contact-row{display:grid;grid-template-columns:130px 1fr auto;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.contact-row .k{font:600 .78rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.contact-row .v{font-weight:600;font-size:1.05rem;word-break:break-word}
+.contact-row a.v{text-decoration:none;color:var(--accent)}
+.contact-row a.v:hover{text-decoration:underline}
+.copy{background:none;border:1px solid var(--line);color:var(--accent);font:600 .78rem var(--mono);padding:.45em .8em;border-radius:8px;cursor:pointer;white-space:nowrap}
+.copy:hover{border-color:var(--accent)}
+.hours{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:16px}
+.status{display:inline-flex;align-items:center;gap:8px;font:600 .85rem var(--mono);justify-self:start;padding:.4em .8em;border-radius:999px;background:var(--surface-2)}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.status.open i{background:var(--ok)}
+.status.closed i{background:var(--off)}
+.hours table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-family:var(--mono);font-size:.95rem}
+.hours tr.today td{color:var(--accent);font-weight:700}
+.hours tr.today td:first-child::after{content:" · сегодня";font:500 .75rem var(--mono);color:var(--gold)}
+.urgent{padding:14px 16px;border-radius:10px;background:var(--gold-soft);font-size:.93rem}
+
+footer{border-top:1px solid var(--line);padding-block:24px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;color:var(--muted);font-size:.9rem}
+footer .codes{font-family:var(--mono)}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:980px){
+  .hero .wrap,.quality .wrap,.contacts .wrap{grid-template-columns:1fr}
+  .langs,.steps{grid-template-columns:1fr 1fr}
+  .grid3{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .langs,.steps,.units,.pipeline{grid-template-columns:1fr}
+  .stage,.stage:first-child,.stage:last-child{border-radius:0}
+  .stage:first-child{border-radius:var(--r) var(--r) 0 0}
+  .stage:last-child{border-radius:0 0 var(--r) var(--r)}
+  .stage+.stage{border-left:1px solid var(--line);border-top:0}
+  .stage:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}
+  .calc{grid-template-columns:1fr 1fr}
+  .calc label{grid-column:1/-1}
+  .contact-row{grid-template-columns:1fr auto}
+  .contact-row .k{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Бюро переводов «Сөз» — наверх">
+      <span class="mark" aria-hidden="true">С</span>
+      <span><strong>Сөз</strong><small>БЮРО ПЕРЕВОДОВ</small></span>
+    </a>
+    <nav class="links" aria-label="Разделы">
+      <a href="#languages">Языки</a>
+      <a href="#quality">Переводчики</a>
+      <a href="#services">Услуги</a>
+      <a href="#order">Как заказать</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn small" href="#contacts">Отправить документ</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="label">Письменный и устный перевод · Алматы</p>
+        <h1>Переводим с английского, немецкого, французского и <em>казахского</em></h1>
+        <p class="lead">Документы, договоры, техническая и медицинская документация, сайты. Каждый текст переводит профессиональный переводчик с профильным образованием, а второй специалист проверяет результат.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contacts">Узнать стоимость</a>
+          <a class="btn ghost" href="#services">Услуги</a>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>4</strong><span>языка → русский</span></div>
+          <div class="fact"><strong>5+ лет</strong><span>опыт переводчиков</span></div>
+          <div class="fact"><strong>30 мин</strong><span>на расчёт стоимости</span></div>
+        </div>
+      </div>
+
+      <div class="word-card" aria-label="Слово «перевод» на четырёх языках">
+        <div class="word-tabs" role="tablist" aria-label="Язык оригинала">
+          <button role="tab" type="button" data-lang="EN" aria-selected="true">EN</button>
+          <button role="tab" type="button" data-lang="DE" aria-selected="false">DE</button>
+          <button role="tab" type="button" data-lang="FR" aria-selected="false">FR</button>
+          <button role="tab" type="button" data-lang="KK" aria-selected="false">KK</button>
+        </div>
+        <div class="word-body" aria-live="polite">
+          <div class="word-row src"><span class="lang" id="srcLang">Английский</span><span class="w" id="srcWord" lang="en">translation</span></div>
+          <div class="arrow" id="dir">en → ru</div>
+          <div class="word-row"><span class="lang">Русский</span><span class="w">перевод</span></div>
+        </div>
+        <div class="word-foot"><span>перевод → редактура → вёрстка</span><span>RU</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="languages">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Языки</p>
+        <h2>Четыре языка — на русский</h2>
+        <p class="lead">Переводим с каждого из этих языков на русский. Обратное направление, с русского на иностранный, выполняем по согласованию.</p>
+      </div>
+      <div class="langs">
+        <article class="lang-card on" data-lang="EN">
+          <span class="code">EN</span>
+          <h3>Английский</h3><span class="native" lang="en">English</span>
+          <p>Договоры, финансовая отчётность, IT и маркетинг, академические тексты, личные документы.</p>
+        </article>
+        <article class="lang-card" data-lang="DE">
+          <span class="code">DE</span>
+          <h3>Немецкий</h3><span class="native" lang="de">Deutsch</span>
+          <p>Техническая документация, инструкции к оборудованию, дипломы и справки для учёбы и работы в Германии.</p>
+        </article>
+        <article class="lang-card" data-lang="FR">
+          <span class="code">FR</span>
+          <h3>Французский</h3><span class="native" lang="fr">Français</span>
+          <p>Юридические и нотариальные документы, деловая переписка, тексты по медицине и фармацевтике.</p>
+        </article>
+        <article class="lang-card" data-lang="KK">
+          <span class="code">KK</span>
+          <h3>Казахский</h3><span class="native" lang="kk">Қазақша</span>
+          <p>Документы государственных органов, решения, лицензии, выписки, учредительные документы компаний.</p>
+        </article>
+      </div>
+
+      <div class="units">
+        <div class="unit"><b>1800 знаков</b><span>с пробелами — одна стандартная страница, учётная единица</span></div>
+        <div class="unit"><b>10 страниц</b><span>в сутки — максимальный объём на одного переводчика</span></div>
+      </div>
+
+      <div class="calc">
+        <label for="chars">Сколько знаков с пробелами в вашем тексте?
+          <input id="chars" type="number" inputmode="numeric" min="0" step="100" value="9000">
+        </label>
+        <output id="pages" for="chars">5<small>учётных страниц</small></output>
+        <output id="days" for="chars">1<small>сутки на одного переводчика</small></output>
+        <p class="note">Оценка по объёму. Точную стоимость и срок назовём в течение 30 минут после получения документа.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quality" id="quality">
+    <div class="wrap">
+      <div>
+        <div class="sec-head" style="margin-bottom:28px">
+          <p class="label">Переводчики</p>
+          <h2>Работают только профессиональные переводчики</h2>
+          <p class="lead">Мы не пользуемся машинным переводом без редактуры и не передаём заказы случайным исполнителям.</p>
+        </div>
+        <ul class="checks">
+          <li><div><b>Профильное образование</b><span>Диплом лингвиста-переводчика и опыт работы от пяти лет.</span></div></li>
+          <li><div><b>Специализация по отраслям</b><span>Юридические, технические и медицинские тексты переводят разные специалисты.</span></div></li>
+          <li><div><b>Проверка вторым специалистом</b><span>Редактор сверяет перевод с оригиналом, терминологию и оформление.</span></div></li>
+          <li><div><b>Конфиденциальность</b><span>Переводчики подписывают соглашение о неразглашении, по запросу заключаем NDA с клиентом.</span></div></li>
+        </ul>
+      </div>
+      <div>
+        <figure class="quote">
+          <blockquote>Хороший перевод читается так, будто текст изначально написан на русском. При этом в нём сохранён каждый термин, каждая цифра и каждая оговорка оригинала.</blockquote>
+          <figcaption>Принцип работы бюро</figcaption>
+        </figure>
+        <div class="pipeline" aria-label="Этапы работы">
+          <div class="stage"><b>Перевод</b><span>профильный переводчик</span></div>
+          <div class="stage"><b>Редактура</b><span>второй специалист</span></div>
+          <div class="stage"><b>Вёрстка</b><span>как в оригинале</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Услуги</p>
+        <h2>Что мы делаем</h2>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
+          <h3>Письменный перевод</h3>
+          <p>Тексты любого объёма с сохранением форматирования.</p>
+          <ul><li>Личные документы и справки</li><li>Договоры и уставы</li><li>Инструкции и спецификации</li></ul>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 7.5 21 12 18.5 16.5 21 15 13.5"/></svg></span>
+          <h3>Нотариальное заверение</h3>
+          <p>Перевод с подписью переводчика, заверенной нотариусом, для подачи в государственные органы и консульства.</p>
+          <ul><li>Паспорта и свидетельства</li><li>Дипломы и приложения</li><li>Доверенности</li></ul>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h6M9 14h4"/></svg></span>
+          <h3>Устный перевод</h3>
+          <p>Последовательный перевод на переговорах, встречах и при сделках у нотариуса.</p>
+          <ul><li>Деловые переговоры</li><li>Сопровождение делегаций</li><li>Онлайн-встречи</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Как заказать</p>
+        <h2>Четыре шага до готового перевода</h2>
+      </div>
+      <ol class="steps">
+        <li><b>Отправьте документ</b><span>По электронной почте, в WhatsApp или привезите в офис.</span></li>
+        <li><b>Получите расчёт</b><span>Назовём стоимость и срок в течение 30 минут в рабочее время.</span></li>
+        <li><b>Перевод и проверка</b><span>Переводчик выполняет перевод, редактор проверяет его.</span></li>
+        <li><b>Готовый перевод</b><span>Отправим файл на почту или выдадим заверенный экземпляр в офисе.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="alt contacts" id="contacts">
+    <div class="wrap">
+      <div>
+        <div class="sec-head" style="margin-bottom:0">
+          <p class="label">Контакты</p>
+          <h2>Пришлите документ или задайте вопрос</h2>
+          <p class="lead">Ответим в течение рабочего дня.</p>
+        </div>
+        <div class="contact-list">
+          <div class="contact-row"><span class="k">Телефон</span><a class="v" id="c-phone" href="tel:+77273554218">+7 (727) 355-42-18</a><button class="copy" type="button" data-copy="c-phone">Копировать</button></div>
+          <div class="contact-row"><span class="k">WhatsApp</span><a class="v" id="c-wa" href="https://wa.me/77014802763" target="_blank" rel="noopener">+7 (701) 480-27-63</a><button class="copy" type="button" data-copy="c-wa">Копировать</button></div>
+          <div class="contact-row"><span class="k">Эл. почта</span><a class="v" id="c-mail" href="mailto:info@soz-translate.kz">info@soz-translate.kz</a><button class="copy" type="button" data-copy="c-mail">Копировать</button></div>
+          <div class="contact-row"><span class="k">Адрес</span><span class="v" id="c-addr">г. Алматы, пр. Абая, 52, офис 304</span><button class="copy" type="button" data-copy="c-addr">Копировать</button></div>
+        </div>
+      </div>
+      <div class="hours">
+        <h3>Часы работы</h3>
+        <span class="status" id="status"><i></i><span>Время Алматы</span></span>
+        <table>
+          <tr data-days="1,2,3,4,5"><td>Понедельник – пятница</td><td>09:00 – 19:00</td></tr>
+          <tr data-days="6"><td>Суббота</td><td>10:00 – 15:00</td></tr>
+          <tr data-days="0"><td>Воскресенье</td><td>выходной</td></tr>
+        </table>
+        <p class="urgent"><strong>Срочные заказы</strong> принимаем по электронной почте и в WhatsApp круглосуточно.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Бюро переводов «Сөз»</span>
+    <span class="codes">EN · DE · FR · KK → RU</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  // Тост
+  var toastEl=document.getElementById('toast'),toastTimer;
+  function toast(msg){
+    toastEl.textContent=msg;toastEl.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(function(){toastEl.classList.remove('show')},2400);
+  }
+
+  // Переключатель языка в карточке-примере
+  var words={
+    EN:{name:'Английский',word:'translation',dir:'en → ru',lang:'en'},
+    DE:{name:'Немецкий',word:'Übersetzung',dir:'de → ru',lang:'de'},
+    FR:{name:'Французский',word:'traduction',dir:'fr → ru',lang:'fr'},
+    KK:{name:'Казахский',word:'аударма',dir:'kk → ru',lang:'kk'}
+  };
+  var tabs=document.querySelectorAll('.word-tabs button'),order=['EN','DE','FR','KK'],current='EN',auto;
+  var srcWord=document.getElementById('srcWord');
+  function show(code){
+    current=code;var d=words[code];
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.lang===code)});
+    srcWord.style.opacity=0;
+    setTimeout(function(){
+      srcWord.textContent=d.word;srcWord.lang=d.lang;srcWord.style.opacity=1;
+      document.getElementById('srcLang').textContent=d.name;
+      document.getElementById('dir').textContent=d.dir;
+    },150);
+    document.querySelectorAll('.lang-card').forEach(function(c){c.classList.toggle('on',c.dataset.lang===code)});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){clearInterval(auto);show(t.dataset.lang)})});
+  document.querySelectorAll('.lang-card').forEach(function(c){
+    c.addEventListener('mouseenter',function(){clearInterval(auto);show(c.dataset.lang)});
+  });
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    auto=setInterval(function(){show(order[(order.indexOf(current)+1)%order.length])},3200);
+  }
+
+  // Калькулятор страниц
+  var chars=document.getElementById('chars'),pagesEl=document.getElementById('pages'),daysEl=document.getElementById('days');
+  function plural(n,one,few,many){var m10=n%10,m100=n%100;return m10===1&&m100!==11?one:(m10>=2&&m10<=4&&(m100<10||m100>=20)?few:many)}
+  function calc(){
+    var n=Math.max(0,Number(chars.value)||0);
+    var p=Math.ceil(n/1800),d=Math.max(p?1:0,Math.ceil(p/10));
+    pagesEl.innerHTML=p+'<small>'+plural(p,'учётная страница','учётные страницы','учётных страниц')+'</small>';
+    daysEl.innerHTML=d+'<small>'+plural(d,'сутки','суток','суток')+' на одного переводчика</small>';
+  }
+  chars.addEventListener('input',calc);calc();
+
+  // Статус «открыто сейчас» по времени Алматы (UTC+5)
+  var now=new Date(),alm=new Date(now.getTime()+now.getTimezoneOffset()*60000+5*3600000);
+  var day=alm.getDay(),mins=alm.getHours()*60+alm.getMinutes();
+  var sched={0:null,6:[600,900]};[1,2,3,4,5].forEach(function(i){sched[i]=[540,1140]});
+  document.querySelectorAll('.hours tr').forEach(function(r){
+    if(r.dataset.days.split(',').map(Number).indexOf(day)>-1)r.classList.add('today');
+  });
+  var s=sched[day],open=s&&mins>=s[0]&&mins<s[1],st=document.getElementById('status');
+  st.classList.add(open?'open':'closed');
+  st.querySelector('span').textContent=open?'Сейчас открыто':'Сейчас закрыто — пишите в WhatsApp';
+
+  // Копирование
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy),text=el.textContent.trim();
+      function fallback(){
+        var r=document.createRange();r.selectNodeContents(el);var sel=getSelection();sel.removeAllRanges();sel.addRange(r);
+        toast('Текст выделен — нажмите Ctrl+C');
+      }
+      try{navigator.clipboard.writeText(text).then(function(){toast('Скопировано: '+text)},fallback)}catch(e){fallback()}
+    });
+  });
+})();
+</script>
+</body>
+</html>
